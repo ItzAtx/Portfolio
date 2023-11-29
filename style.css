@@ -1,0 +1,21 @@
+h1{
+    text-align: center;
+}
+
+.présentation{
+    position: relative;
+    top: 100px;
+    left: 250px;
+}
+
+.textePrésentation{
+    position: relative;
+    top:120px;
+    left: 250px;
+
+}
+
+.projets{
+    position: relative;
+    top: 500px;
+}
