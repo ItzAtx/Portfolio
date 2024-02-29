@@ -1,6 +1,13 @@
 # Portfolio
-FR : Présentation de mes principaux projets scolaires/personnelles
+
+FR :
+Porfolio d'Anthony Vauchel
+
+Présentation de mes principaux projets scolaires/personnelles
 
 
 
-EN : Presentation of my main school and personal projects
+EN :
+Anthony Vauchel's portfolio
+
+Presentation of my main school and personal projects
