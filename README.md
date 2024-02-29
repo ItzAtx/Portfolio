@@ -1,7 +1,7 @@
 # Portfolio
 
 FR :
-Porfolio d'Anthony Vauchel
+Portfolio d'Anthony Vauchel
 
 Présentation de mes principaux projets scolaires/personnelles
 
