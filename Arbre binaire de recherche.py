@@ -1,6 +1,36 @@
 import tkinter as tk
 from tkinter import messagebox
 
+""" FR : PROJET CODÉ PAR ANTHONY VAUCHEL
+    
+    The goal of this project is to create an application that will allow the user to draw a binary search tree based on values they input.
+    The application will be divided into 3 parts:
+    - La partie de saisie des valeurs
+    - La partie des boutons
+    - La partie du dessin de l'arbre
+    On utilisera les valeurs saisies pour construire un arbre binaire de recherche.
+    Les valeurs ne doivent pas êtres inférieures à 1 ou supérieures à 999.
+    La hauteur de l'arbre ne doit pas dépasser 3.
+    Les différents boutons auront plusieurs fonctionnalités :
+    - Quitter l'application
+    - Créer une fenêtre Pop-Up qui donnera des informations sur l'application
+    - Dessiner l'arbre 
+    - Réinitialiser les valeurs saisies ainsi que l'arbre dessiné
+    
+    EN : PROJECT CODED BY ANTHONY VAUCHEL
+    The aim of this project is to create an application divided into 3 parts:
+    - The input values section
+    - The buttons section
+    - The tree drawing section
+    We will use the entered values to construct a binary search tree.
+    Values should not be less than 1 or greater than 999.
+    The height pf the tree should not exceed 3.
+    - Various buttons will have multiple functionalities:
+    - Exit the application
+    - Create a Pop-Up window providing information about the application
+    - Draw the tree
+    Reset the entered values and the drawn tree"""
+
 #---------------------------------------------------------------CLASSE DE L'ARBRE------------------------------------------------------------
 
 class ArbreBinaireRecherche:
