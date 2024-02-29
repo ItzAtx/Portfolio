@@ -2,6 +2,8 @@ import tkinter as tk
 from tkinter import messagebox
 
 """ FR : PROJET CODÉ PAR ANTHONY VAUCHEL
+
+    PROJET SCOLAIRE 
     
     Le but de ce projet est de créer une application qui permettra de dessiner un arbre binaire de recherche à partir de valeurs que l'utilisateur aura entrées.
     L'application sera séparée en 3 parties :
@@ -18,6 +20,9 @@ from tkinter import messagebox
     - Réinitialiser les valeurs saisies ainsi que l'arbre dessiné
     
     EN : PROJECT CODED BY ANTHONY VAUCHEL
+
+    SCHOOL PROJECT 
+
     The goal of this project is to create an application that will allow the user to draw a binary search tree based on values they input.
     The application will be divided into 3 parts:
     - The input values section
