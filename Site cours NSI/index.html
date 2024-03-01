@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset ="utf-8">
+        <title>Cours</title>
+        <script type="text/javascript" src="Background.js"></script> <!--On lie le JavaScript à l'html pour le fond-->
+        <link type="text/css" rel="stylesheet" href="PagePrincipale.css"> <!--On lie le css à l'html-->
+        <div style="position:fixed; z-index:0; top:0; left:0; width:100%; height:100%;">
+            <canvas id="canvas" style="width:100%; height:100%;"></canvas>      <!--On fait les paramètres pour régler le fond avec canvas (on met donc la tialle à 100% pour que ça fasse tout l'écran)-->
+            <script type="text/javascript">new WarpSpeed("canvas");</script>               
+        </div>
+
+    </head>
+    <body>
+        
+        <h1 class="glow-title">Bienvenue sur la page contenant tous les cours de NSI du programme de 1ère !<br>   <!--On crée le titre en lui assimilant une classe-->
+                                                     Choisissez un cours à réviser :
+        </h1>
+        <dl>
+            <h2><br><br><br><br><dt><a href="Histoire.html" class="glow-on-hover">Histoire de l'informatique</a></dt></h2>
+            <h2><dt><a href="ReprésentationDesDonnées1.html" class="glow-on-hover">Représentation des données : type et valeurs de base</a></dt></h2>
+            <h2><dt><a href="ReprésentationDesDonnées2.html" class="glow-on-hover">Représentation des données : types construits</a></dt></h2>
+            <h2><dt><a href="TraitementDesDonnées.html" class="glow-on-hover">Traitement des données en tables</a></dt></h2>      <!--On crée un tableau qui recense toutes les pages-->
+            <h2><dt><a href="InteractionHetW.html" class="glow-on-hover">Interaction entre l'homme et la machine sur le Web</a></dt></h2>
+            <h2><dt><a href="Architecture.html" class="glow-on-hover">Architecture matérielle et systèmes d'exploitation</a></dt></h2>
+            <h2><dt><a href="LangagesEtProgrammation.html" class="glow-on-hover">Langages et programmation</a></dt></h2>
+            <h2><dt><a href="Algo.html" class="glow-on-hover">Algorithmique</a></dt><br>
+        </dl>
+            
+ 
+    </body>
+</html>

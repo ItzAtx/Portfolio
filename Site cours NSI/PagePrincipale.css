@@ -1,0 +1,242 @@
+h1{
+    text-decoration: none;
+    color :white;  
+    /*On enlève les décorations de texte et on le met en blanc pour tous les h1*/
+}
+
+h2{
+    color: white;   
+    text-decoration: none;
+    padding : 10px 10px;
+    /*On enlève les décorations de texte, on le met en blanc et on modifie la taille de sa marge pour tous les h2*/
+}
+
+html{
+    font-family: sans-serif;
+    /*On met une nouvelle famille de police*/
+}
+
+*{
+    text-align: center;
+    /*On aligne tous les éléments au centre de la pages*/
+}
+
+
+
+/*----------------------------BORDURES---------------------------------------*/
+
+
+.block {
+    position: relative;
+    margin: 10px auto 0;
+	width: 1200px;
+	height: 70px;
+	background: linear-gradient(0deg, #000, #272727);
+    border-radius: 12px;
+    content: '';
+	position: absolute;
+    /*On crée les délimitations des bordures*/
+	left: -2px;
+	top: -2px;
+	background: linear-gradient(45deg, #fb0094, #0000ff, #00ff00,#ffff00, #ff0000, #fb0094, 
+		#0000ff, #00ff00,#ffff00, #ff0000);
+	background-size: 400%;
+	width: calc(100% + 4px);
+	height: calc(100% + 4px);
+	z-index: -1;
+	animation: steam 20s linear infinite;
+    border-radius: 12px;
+    /*On crée les animations et les couleurs de la bordure*/
+}
+
+@keyframes steam {
+	0% {
+		background-position: 0 0;
+	}
+	50% {
+		background-position: 400% 0;
+	}
+	100% {
+		background-position: 0 0;
+	}
+}
+
+
+
+
+/*----------------------------BOUTON---------------------------------------*/
+
+
+.glow-on-hover {
+    width: 220px;
+    height: 50px;
+    border: none;
+    padding: 10px 10px;
+    outline: none;
+    color: #fff;
+    background: #110a1b;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+    text-decoration: none;
+    background: transparent;
+    /*Création du bouton losqu'il est inactif*/
+}
+
+.glow-on-hover:before {
+    content: '';
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+    /*Création des caractéristiques prendra lorsqu'on passera la souris dessus*/
+}
+
+.glow-on-hover:hover:before {
+    opacity: 1;
+}
+
+.glow-on-hover:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #110a1b;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+    /* Création des actions lorsqu'on passe la souris sur le bouton*/
+}
+
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}
+
+
+/*----------------------------TITRE SANS OPACITÉ---------------------------------------*/
+
+
+.glow-title{
+    width: 1250px;
+    height: 70 px;
+    border: none;
+    padding: 10px 10px;
+    outline: none;
+    color: #fff;
+    background: #110a1b;
+    position: relative;
+    left: 300px;
+    z-index: 0;
+    border-radius: 10px;
+    text-decoration: none;
+    
+}
+
+.glow-title:before {
+    content: '';
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    transition: opacity .3s ease-in-out;
+    border-radius: 12px;
+}
+
+.glow-title:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #110a1b;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}
+
+
+/*---------------------------VERSIONS DES H1---------------------------------------*/
+
+
+.h1v2.glow-title{
+    width: 400px;
+    height: 40px;
+    position: relative;
+    left: 725px;
+}
+
+.h1v3.glow-title{
+    width: 850px;
+    height: 40px;
+    position: relative;
+    left: 500px;
+}
+
+.h1v4.glow-title{
+    width: 750px;
+    height:40px;
+    position: relative;
+    left: 550px;
+}
+
+.h1v5.glow-title{
+    width: 550px;
+    height:40px;
+    position: relative;
+    left: 650px;
+}
+
+.h1v6.glow-title{
+    width: 825px;
+    height:40px;
+    position: relative;
+    left: 550px;
+}
+
+.h1v7.glow-title{
+    width: 800px;
+    height:40px;
+    position: relative;
+    left: 550px;
+}
+
+.h1v8.glow-title{
+    width: 450px;
+    height:40px;
+    position: relative;
+    left: 700px;
+}
+
+.h1v9.glow-title{
+    width: 225px;
+    height:40px;
+    position: relative;
+    left: 800px;
+}
+
+/*On crée tous les titres différents pour qu'ils aient chacun une taille qui leur correspond*/
