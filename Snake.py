@@ -73,7 +73,8 @@ def boucle():
                     elif event.key == pygame.K_c:
                         score = 0  #Réinitialise le score
                         boucle()
-
+                        
+        #La direction du serpent est mise à jour en fonction des touches du clavier pressées par l'utilisateur
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 gameOver = True
