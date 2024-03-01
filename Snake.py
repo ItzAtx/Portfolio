@@ -20,7 +20,7 @@ pygame.init()
 score = 0 #Initialisation du score
 width, height = 600, 400 #La taille de la fenêtre
 fenetre = pygame.display.set_mode((width, height)) #Crée une fenêtre
-pygame.display.set_caption("serpentGame") #Titre de la fenêtre
+pygame.display.set_caption("Snake") #Titre de la fenêtre
 
 
 vitesseJeu = pygame.time.Clock() #On crée la vitesse de notre jeu
