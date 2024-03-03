@@ -3,7 +3,7 @@
 FR :
 Portfolio d'Anthony Vauchel
 
-Présentation de mes principaux projets scolaires/personnelles
+Présentation de mes principaux projets scolaires/personnels
 
 
 
