@@ -6,6 +6,7 @@ Le but de ce projet était de créer un groupe de pages webs qui répértorient 
 Ce projet m'aura fait toucher à de l'HTML, du CSS et du JS.
 
 Crédits : J'ai trouvé le fond d'écran de mes pages webs sur un site, celui de Federico Dossena, j'ai retrouvé le script du fond sur son github 
+
 Son Github : https://github.com/adolfintel
 
 EN: PROJECT CODED BY ANTHONY VAUCHEL
