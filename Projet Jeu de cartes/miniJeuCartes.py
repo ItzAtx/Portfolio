@@ -32,6 +32,7 @@ def ValeurPaquet(paquet,joueur):
     ListeValeurs = "\x1B[32m" + "Jeu du joueur " + joueur + " : " + "\x1B[0m"
     for carte in paquet:
         valeur = str(carte.GetValeur())
+        #On ajoute la couleur 
         if carte.GetCouleur() == 'Pique':
             coul = "\x1B[30m" + chr(0x2660) + "\x1B[0m"
         elif carte.GetCouleur() == 'Coeur':
@@ -40,6 +41,7 @@ def ValeurPaquet(paquet,joueur):
             coul = "\x1B[31m" + chr(0x2666) + "\x1B[0m"
         elif carte.GetCouleur() == 'Trèfle':
             coul = "\x1B[30m" + chr(0x2663) + "\x1B[0m"
+        #On remplace les chiffres par leurs symboles
         if valeur == '14':
             valeur = 'A'
         if valeur == '13':
@@ -77,7 +79,7 @@ ValeurPaquetB,ListeValeursB = ValeurPaquet(PaquetB, JoueurB)
 ValeurPaquetC,ListeValeursC = ValeurPaquet(PaquetC, JoueurC)
 ValeurPaquetD,ListeValeursD = ValeurPaquet(PaquetD, JoueurD)
  
-#Détermination du gagnant
+#La variable où sera stocké la valeur la plus grande
 ScoreMax = max(ValeurPaquetA,ValeurPaquetB,ValeurPaquetC,ValeurPaquetD)
 
 #Affichage des paquets et de leurs valeurs
@@ -92,7 +94,7 @@ print("\x1B[32m" + "Valeur du Paquet D :" + "\x1B[0m",ValeurPaquetD)
     
 
 
-
+#Détermination du gagnant
 if ValeurPaquetA == ScoreMax:
     print("\x1B[31m" + "\nLe joueur A gagne avec un total de", ValeurPaquetA)
 elif ValeurPaquetB == ScoreMax:
