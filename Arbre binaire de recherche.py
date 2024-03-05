@@ -117,7 +117,6 @@ class Application:
         self.canevas.pack()
         
         #Création des widgets
-        self.labelInc = tk.Label(fenetre, text = "propriété de Vauchel Inc®, ne pas copier sous peine d'emprisonnement")
         self.labelTaille = tk.Label(fenetre, fg="red", text="Taille :")
         self.labelTailleVar = tk.Label(fenetre, text=" ")
         self.labelHauteur = tk.Label(fenetre, fg="green", text="Hauteur :")
@@ -156,7 +155,6 @@ class Application:
         self.boutonAPropos.place(x=1000, y=525)
         self.boutonQuitter.place(x=1000, y=600)
         
-        self.labelInc.place(x=820, y=685)
         self.labelHauteur.place(x= 850, y=425)
         self.labelHauteurVar.place(x= 910, y = 425)
         self.labelTaille.place(x=750, y=425)
