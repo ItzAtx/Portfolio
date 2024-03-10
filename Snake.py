@@ -48,7 +48,7 @@ def boucle():
     gameOver = False
     fermerJeu = False
 
-    serpent= [[width // 2, height // 2]]
+    serpent = [[width // 2, height // 2], [width // 2, height // 2]]
     serpentDirection = 'UP'
 
     fruit = [random.randrange(1, (width//tailleSerpent)) * tailleSerpent,
