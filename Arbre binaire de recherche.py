@@ -37,8 +37,6 @@ from tkinter import messagebox
     - Draw the tree
     Reset the entered values and the drawn tree"""
 
-#---------------------------------------------------------------CLASSE DE L'ARBRE------------------------------------------------------------
-
 import tkinter as tk
 from tkinter import messagebox
 
