@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import messagebox
 import random
+import time
 
 """ FR : PROJET CODÉ PAR ANTHONY VAUCHEL
 
@@ -96,15 +97,17 @@ def estSolutionUnique(tableau):
 
 
 class SudokuPrincip(tk.Tk):
-    """Crée une fenêtre Tkinter pour le Sudoku"""
     def __init__(self):
-        super().__init__()  #Appelle le constructeur de la classe parente
+        super().__init__()
         self.title("Sudoku")
-        self.grilleSudoku = genererSudoku()  #Génère un Sudoku aléatoire
-        self.solutionGrille = [row[:] for row in self.grilleSudoku]  #Copie du Sudoku pour stocker la solution
-        resoudreSudoku(self.solutionGrille)  #Résout le Sudoku pour obtenir la solution
-        self.entrees = []  #Liste pour stocker les champs d'entrée du Sudoku
-        self.creerWidgets()  #Crée les widgets de la fenêtre
+        self.grilleSudoku = genererSudoku()
+        self.solutionGrille = [row[:] for row in self.grilleSudoku]
+        resoudreSudoku(self.solutionGrille)
+        self.entrees = []
+        self.creerWidgets()
+        self.debut = time.time()  #Temps de départ du chronomètre
+        self.tempsStop = False  #Indique si le chronomètre est arrêté
+        self.chronometre()  #Met à jour le timer
 
     def creerWidgets(self):
         #Crée les champs d'entrée pour le Sudoku
@@ -130,18 +133,37 @@ class SudokuPrincip(tk.Tk):
         #Configure toutes les colonnes avec la même largeur
         for i in range(9):
             self.grid_columnconfigure(i, weight=1)
+        
+        #Label pour afficher le timer
+        self.labelChrono = tk.Label(self, text="Temps écoulé: 00:00")
+        self.labelChrono.grid(row=10, column=0, columnspan=9, sticky='we')
+    
+    def chronometre(self):
+    """Met à jour le timer toutes les secondes"""
+        if not self.tempsStop:
+            tempsActuel = time.time() - self.debut
+            minutes = int(tempsActuel // 60)
+            secondes = int(tempsActuel % 60)
+            self.labelChrono.config(text="Temps écoulé: {:02d}:{:02d}".format(minutes, secondes))
+            self.after(1000, self.chronometre)  #Appel récursif pour mettre à jour le timer
+
 
     def verifierSolution(self):
-        #Récupère la saisie de l'utilisateur
+        """Récupère la saisie de l'utilisateur et l'évalue"""
         grilleUtilisateur = [[int(self.entrees[i * 9 + j].get()) if self.entrees[i * 9 + j].get() else 0
-                       for j in range(9)] for i in range(9)]
+                              for j in range(9)] for i in range(9)]
         if not estComplet(grilleUtilisateur):
-            messagebox.showerror("SudokuErreur", "Sudoku incomplet ! Veuillez saisir toutes les valeurs !")  #Affiche une erreur si le Sudoku est incomplet
+            messagebox.showerror("SudokuErreur", "Sudoku incomplet ! Veuillez saisir toutes les valeurs !")
         elif grilleUtilisateur == self.solutionGrille:
-            messagebox.showinfo("SudokuErreur", "Félicitations ! Vous avez trouvé la solution !")  # Félicite si la solution est correcte
+            self.tempsStop = True  #Arrête le chronomètre
+            tempsEcoule = time.time() - self.debut  #Calcul du temps écoulé
+            tempsM = int(tempsEcoule // 60)
+            tempsS = int(tempsEcoule % 60)
+            tempsString = "{:02d}:{:02d}".format(tempsM, tempsS)
+            messagebox.showinfo("SudokuErreur", f"Félicitations ! Vous avez trouvé la solution !\nTemps écoulé: {tempsString}")
             self.destroy()  #Ferme la fenêtre
         else:
-            messagebox.showerror("SudokuErreur", "Dommage ! Votre solution est incorrecte !")  #Affiche une erreur si la solution est incorrecte
+            messagebox.showerror("SudokuErreur", "Dommage ! Votre solution est incorrecte !")
 
     def montrerSolution(self):
         """Crée la fenêtre de la solution"""
@@ -178,3 +200,4 @@ class SolutionWindow(tk.Toplevel):
 #Crée une fenêtre Tkinter principale
 root = SudokuPrincip()
 root.mainloop()  #Lance la boucle principale de l'application
+
