@@ -139,7 +139,7 @@ class SudokuPrincip(tk.Tk):
         self.labelChrono.grid(row=10, column=0, columnspan=9, sticky='we')
     
     def chronometre(self):
-    """Met à jour le timer toutes les secondes"""
+        """Met à jour le timer toutes les secondes"""
         if not self.tempsStop:
             tempsActuel = time.time() - self.debut
             minutes = int(tempsActuel // 60)
