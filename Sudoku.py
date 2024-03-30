@@ -21,17 +21,17 @@ import time
 
 def estValide(tableau, row, col, nombre):
     """Vérifie si le Sudoku est résolu"""
-    #Vérifie si le nombreéro est valide dans la ligne
+    #Vérifie si le nombre est valide dans la ligne
     for x in range(9):
         if tableau[row][x] == nombre:
             return False
 
-    #Vérifie si le nombreéro est valide dans la colonne
+    #Vérifie si le nombre est valide dans la colonne
     for x in range(9):
         if tableau[x][col] == nombre:
             return False
 
-    #Vérifie si le nombreéro est valide dans la sous-grille 3x3
+    #Vérifie si le nombre est valide dans la sous-grille 3x3
     rowDebut, colDebut = 3 * (row // 3), 3 * (col // 3)
     for i in range(3):
         for j in range(3):
