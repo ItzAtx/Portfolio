@@ -30,12 +30,12 @@ from tkinter import messagebox
     - The tree drawing section
     We will use the entered values to construct a binary search tree.
     Values should not be less than 1 or greater than 999.
-    The height pf the tree should not exceed 3.
-    - Various buttons will have multiple functionalities:
+    The height of the tree should not exceed 3.
+    Various buttons will have multiple functionalities:
     - Exit the application
     - Create a Pop-Up window providing information about the application
     - Draw the tree
-    Reset the entered values and the drawn tree"""
+    - Reset the entered values and the drawn tree"""
 
 import tkinter as tk
 from tkinter import messagebox
