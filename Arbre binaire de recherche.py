@@ -1,6 +1,3 @@
-import tkinter as tk
-from tkinter import messagebox
-
 """ FR : PROJET CODÉ PAR ANTHONY VAUCHEL
 
     PROJET SCOLAIRE 
@@ -12,12 +9,13 @@ from tkinter import messagebox
     - La partie du dessin de l'arbre
     On utilisera les valeurs saisies pour construire un arbre binaire de recherche.
     Les valeurs ne doivent pas êtres inférieures à 1 ou supérieures à 999.
-    La hauteur de l'arbre ne doit pas dépasser 3.
+    La hauteur de l'arbre ne doit pas dépasser 4.
     Les différents boutons auront plusieurs fonctionnalités :
     - Quitter l'application
     - Créer une fenêtre Pop-Up qui donnera des informations sur l'application
     - Dessiner l'arbre 
     - Réinitialiser les valeurs saisies ainsi que l'arbre dessiné
+    - Exemple pour dessiner un arbre avec des valeurs aléatoires
     
     EN : PROJECT CODED BY ANTHONY VAUCHEL
 
@@ -30,15 +28,17 @@ from tkinter import messagebox
     - The tree drawing section
     We will use the entered values to construct a binary search tree.
     Values should not be less than 1 or greater than 999.
-    The height of the tree should not exceed 3.
+    The height of the tree should not exceed 4.
     Various buttons will have multiple functionalities:
     - Exit the application
     - Create a Pop-Up window providing information about the application
     - Draw the tree
-    - Reset the entered values and the drawn tree"""
+    - Reset the entered values and the drawn tree
+    - Exemple to create an tree with random valors"""
 
 import tkinter as tk
 from tkinter import messagebox
+from random import randint
 
 #---------------------------------------------------------------CLASSE DE L'ARBRE------------------------------------------------------------
 
@@ -123,19 +123,22 @@ class Application:
         self.labelRacine = tk.Label(fenetre, text="Entrez la racine voulue ici :")
         self.labelPositionCles = tk.Label(fenetre, text="Entrez les valeurs des clés ci-dessous :")
         self.labelTailleVar = tk.Label(fenetre, text=' ')
+        self.labelEffacement = tk.Label(fenetre, fg="red", text=' ')
 
         self.boutonDessiner = tk.Button(fenetre, text="Dessiner l'arbre", fg="green", command=self.recupererValeurs)
         self.boutonRéinitialiser = tk.Button(fenetre, text="Réinitialiser l'arbre", fg="gray", command=self.reinitialiser)
         self.boutonAPropos = tk.Button(fenetre, text="A propos", fg="blue", command=self.aPropos)
         self.boutonQuitter = tk.Button(fenetre, text="Quitter le programme", command=fenetre.destroy)
+        self.boutonExemple = tk.Button(fenetre, text ="Créer un exemple", fg="purple", command = self.exemple)
         
         self.entréeRacine = tk.Entry(fenetre, width=5)
         
         # Positions des widgets
-        self.boutonDessiner.place(x=1120, y=520)
-        self.boutonRéinitialiser.place(x=1120, y=600)
-        self.boutonAPropos.place(x=1300, y=525)
+        self.boutonDessiner.place(x=1120, y=550)
+        self.boutonRéinitialiser.place(x=1050, y=600)
+        self.boutonAPropos.place(x=1250, y=550)
         self.boutonQuitter.place(x=1300, y=600)
+        self.boutonExemple.place(x = 1175, y = 600)
         
         self.labelInc.place(x=1120, y=685)
         self.labelHauteur.place(x=1150, y=425)
@@ -147,6 +150,7 @@ class Application:
         self.labelBoutons.place(x=1185, y=470)
         self.labelRacine.place(x=1075, y=75)
         self.labelPositionCles.place(x=1075, y=125)
+        self.labelEffacement.place(x=0, y=685)
         
         self.entréeRacine.place(x=1220, y=75)
         
@@ -173,8 +177,12 @@ class Application:
         #Réinitialise la liste de valeurs
         self.valeurs = [''] * 15
         
+        #Efface la phrase d'information si hauteur > 4
+        self.labelEffacement.config(text=" ")
+        
         #Efface le contenu du canevas
         self.canevas.delete("all")
+        
         
         #Redessine les lignes qui délimitent les trois parties effacées initialement
         self.canevas.create_line(1000, 0, 1000, 700)
@@ -185,19 +193,20 @@ class Application:
         #Création d'un nouveau canevas pour afficher les informations
         porte = tk.Tk()
         porte.title("Comment marche l'application ?")
-        canevapa = tk.Canvas(porte, width=640, height=180)
+        canevapa = tk.Canvas(porte, width=660, height=200)
         canevapa.pack()
         
         #Les informations
         tk.Label(porte, fg="green", text="Cliquer sur le bouton Dessiner permet aux valeurs saisies d'apparaître dans l'arbre.").place(x=0, y=0)
         tk.Label(porte, fg="gray", text="Cliquer sur le bouton Réinitialiser effacera toutes les valeurs saisies ainsi que l'arbre.").place(x=0, y=20)
         tk.Label(porte, text="Cliquer sur le bouton Quitter permet de fermer l'application.").place(x=0, y=40)
-        tk.Label(porte, fg="lightblue", text="Vous devez saisirs les valeurs à mettre dans l'arbre binaire de recherche.").place(x=0, y=60)
-        tk.Label(porte, fg="red", text="ATTENTION : La hauteur maximale de l'arbre que vous voulez dessiner ne doit pas dépasser 4.").place(x=0, y=80)
-        tk.Label(porte, fg="red", text="ATTENTION : Les valeurs entrées ne doivent pas être inférieures à 1 ou supérieures à 99, et ce sont forcément des entiers.").place(x=0, y=100)
-        tk.Label(porte, fg="red", text="ATTENTION : Vous ne pouvez pas rentrer deux fois la même valeur (en tout cas ça créera un arbre erroné).").place(x=0, y=120)
-        tk.Label(porte, fg="red", text="REMARQUE : Si vous n'avez pas saisi de racine, la première valeur rentrée deviendra la racine.").place(x=0, y=140)
-        tk.Label(porte, fg="blue", text="INFORMATION : Modifier une valeur saisie modifiera l'arbre en remplaçant l'ancienne valeur par la nouvelle entrée.").place(x=0, y=160)
+        tk.Label(porte, fg="purple", text="Cliquer sur le bouton Exemple fera apparaître un arbre avec des valeurs aléatoires.").place(x=0, y=60)
+        tk.Label(porte, fg="lightblue", text="Vous devez saisirs les valeurs à mettre dans l'arbre binaire de recherche.").place(x=0, y=80)
+        tk.Label(porte, fg="red", text="ATTENTION : La hauteur maximal de l'arbre est de 4, les valeurs qui font passer la hauteur au dessus de 4 seront supprimées.").place(x=0, y=100)
+        tk.Label(porte, fg="red", text="ATTENTION : Les valeurs entrées ne doivent pas être inférieures à 1 ou supérieures à 99, et ce sont forcément des entiers.").place(x=0, y=120)
+        tk.Label(porte, fg="red", text="ATTENTION : Si vous rentrez deux fois la même valeur, elle n'apparaîtra qu'une seule fois.").place(x=0, y=140)
+        tk.Label(porte, fg="red", text="REMARQUE : Si vous n'avez pas saisi de racine, la première valeur rentrée deviendra la racine.").place(x=0, y=160)
+        tk.Label(porte, fg="blue", text="INFORMATION : Modifier une valeur saisie modifiera l'arbre en remplaçant l'ancienne valeur par la nouvelle entrée.").place(x=0, y=180)
 
     def recupererValeurs(self):
         """Récupère les valeurs entrées et vérifie si ce sont bien des entiers compris entre 1 et 99 et qu'il n'y a pas de doublons"""
@@ -218,15 +227,11 @@ class Application:
                     raise ValueError("Erreur", "Les valeurs doivent uniquement être des entiers (réinitialisez pour recommencer).")
                     return
 
-                if not (1 <= valeurInt <= 99):  #Si la valeur n'est pas comprise entre 1 et 99, renvoyer une erreur
+                if not (1 <= valeurInt <= 999):  #Si la valeur n'est pas comprise entre 1 et 99, renvoyer une erreur
                     tk.messagebox.showerror("Erreur", "Les valeurs doivent être des entiers entre 1 et 99 (réinitialisez pour recommencer).")
                     raise ValueError("Erreur", "La valeur doit être un entier entre 1 et 99 (réinitialisez pour recommencer).")
                     return
 
-                if valeurInt in valeursInt:  # Sila valeur est déjà dans la liste, renvoyer une erreur
-                    tk.messagebox.showerror("Erreur", f"La valeur {valeurInt} a été saisie plus d'une fois (réinitialisez pour recommencer).")
-                    raise ValueError("Erreur", f"La valeur {valeurInt} a été saisie plus d'une fois (réinitialisez pour recommencer).")
-                    return
 
                 valeursInt.add(valeurInt)  #Ajouter la valeur à l'ensemble
         
@@ -235,6 +240,10 @@ class Application:
     def creationArbre(self):
         """Crée l'arbre avec les valeurs correctement saisies, vérifie si la liste n'est pas vide et que la hauteur maximale n'est pas dépassée
         et met à jour l'arbre si une valeur est remplacée par une autre"""
+        
+        #Efface la phrase d'information si hauteur > 4
+        self.labelEffacement.config(text=" ")
+        
         valeursInt = [int(v) if v else None for v in self.listeValeurs]  #Convertit en int seulement si la valeur n'est pas vide
         valeursInt = list(filter(None, valeursInt))  #Supprime les valeurs None
 
@@ -251,9 +260,17 @@ class Application:
         self.labelTailleVar.config(text=self.taille)  #Renvoie la taille
         self.hauteur = AB1.hauteur()
         self.labelHauteurVar.config(text=self.hauteur)  #Renvoie la hauteur
-        if self.hauteur > 4:  #Test si la hauteur maximale n'est pas dépassée
-            tk.messagebox.showerror("Erreur", "La hauteur maximale de l'arbre doit être de 4.")
-            raise ValueError("Erreur", "La hauteur maximale de l'arbre doit être de 4.")
+
+        #Si la hauteur dépasse 4, supprime les valeurs et ajuste l'arbre
+        if self.hauteur > 4:
+            self.labelEffacement.config(text = "ATTENTION : Des valeurs ont été supprimées pour limiter la hauteur à 4 !")
+            while self.hauteur > 4:
+                valeursInt.pop()  #Supprime la dernière valeur
+                AB1 = ArbreBinaireRecherche(valeursInt[0])
+                for valeur in valeursInt[1:]:
+                    AB1.ajoute(valeur)
+                self.hauteur = AB1.hauteur()
+                self.labelHauteurVar.config(text=self.hauteur)
 
         #Efface le contenu du canevas
         self.canevas.delete("all")
@@ -263,6 +280,7 @@ class Application:
         self.canevas.create_line(1000, 450, 1500, 450)
 
         self.dessinerArbre(AB1, 450, 150, 3)
+
 
     def dessinerArbre(self, arbre, x, y, niveau, largeur=700, espacementHorizontal=200, espaceVertical=100):
         """Dessine l'arbre sur le canevas avec les valeurs entrées triées pour créer un arbre binaire de recherche"""
@@ -277,15 +295,21 @@ class Application:
             if arbre.sag:
                 xGauche = x - espacementHorizontal
                 yGauche = y + espaceVertical
-                self.canevas.create_line(x, y + rayon, xGauche, yGauche - rayon, width=2, fill="black")
+                self.canevas.create_line(x - 15, y + rayon - 7, xGauche, yGauche - rayon, width=2, fill="black")
                 self.dessinerArbre(arbre.sag, xGauche, yGauche, niveau - 1, largeur / 2, espacementHorizontal / 2)
 
             #Dessiner la branche droite
             if arbre.sad:
                 xDroite = x + espacementHorizontal
                 yDroite = y + espaceVertical
-                self.canevas.create_line(x, y + rayon, xDroite, yDroite - rayon, width=2, fill="black")
+                self.canevas.create_line(x + 15, y + rayon - 7, xDroite, yDroite - rayon, width=2, fill="black")
                 self.dessinerArbre(arbre.sad, xDroite, yDroite, niveau - 1, largeur / 2, espacementHorizontal / 2)
+
+    def exemple(self):
+        """Crée un arbre avec des valeurs aléatoires"""
+        self.listeValeurs = [randint(1, 999) for i in range(randint(6, 10))]
+        self.creationArbre()
 
 #Crée une instance de l'application
 application = Application()
+
