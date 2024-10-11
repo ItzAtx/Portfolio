@@ -1,0 +1,101 @@
+/*Réinitialisation des marges et du padding de tous les éléments*/
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/*Définition de la taille du titre principale et de sa couleur*/
+h1{
+    font-size: 3em;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+/*Définition de la taille des sous-titres (h2) et de leur couleur*/
+h2{
+    color: #ffcc33;
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+/*Supprime les soulignements des liens*/
+a{
+    text-decoration: none;
+}
+
+/*Ajout d'un espacement sous les paragraphes et augmentation de la taille de la police*/
+p{
+    margin-bottom: 20px;
+    font-size: 1.2em;
+}
+
+/*Entête de la page : centré, ajout d'un espacement en dessous, augmentation des marges, définition de la couleur du fond, coins arrondis, définition d'ombre "sous la boîte"*/
+header{
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 20px;
+    background-color: #1e3c72;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/*Corps de la page : ajout de la police Verdana, ajout d'un fond en dégradé, définition de la couleur du texte en blanc, texte centrée, augmentation des marges*/
+body{
+    font-family: 'Verdana';
+    background: linear-gradient(to bottom right, #1e3c72, #3577e9);
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+/*Conteneur principal : mise en page en colonne, écart entre les sections, définition de la largeure maximal des boîtes*/
+main{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 900px;
+}
+
+/*Définition de la taille du logo*/
+.logo{
+    width: 60px;
+}
+
+/*Blocs : définition de la couleur du fond, augmentation des marges, coins arrondis, définition de l'ombre "sous la boîte", création d'une animation au survol, texte centré*/
+.blocs{
+    background-color: #3B61A2;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.5s ease-in-out;
+    text-align: center;
+}
+
+/*Boutons : définition des blocs en ligne, définition des marges, couleur du fond des boutons en jaune, celle du texte en noir, coins arrondis, création d'ombre et d'une animation au survol, définition de la taille de la police*/
+.bouton{
+    display: inline-block;
+    padding: 12px 25px;
+    background: #ffcc33;
+    color: #333;
+    border-radius: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.5s ease-in-out;
+    font-size: 1.1em;
+}
+
+/*Animation lorsque le bloc est survolé : déplacement vers le haut et ombre plus prononcée*/
+.blocs:hover{
+    transform: translateY(-10px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
+}
+
+/*Animation lorsque le bouton est survolé : changement de couleur, création d'une animation et ombre plus prononcée*/
+.bouton:hover{
+    background: #ff9900;
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+}
+
